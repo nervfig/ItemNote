@@ -72,4 +72,33 @@ public class SSCode : MonoBehaviour
         }
 
     }
+    public int SpecialArray(int[] nums) {
+        //[0,4,3,0,4]
+        int max=0;
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (max<nums[i])
+            {
+                max=nums[i];
+            }
+        }
+        for (int i = 1; i <=max; i++)
+        {
+            int count = 0;
+            for (int j = 0; j < nums.Length; j++)
+            {
+                if (nums[j]>=i)
+                {
+                    count++;
+                }
+            }
+
+            if (count==i)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 }
